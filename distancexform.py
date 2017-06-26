@@ -14,10 +14,10 @@ def Pixel2World ( geoMatrix, i , j ):
     rtnX = geoMatrix[2]
     rtnY = geoMatrix[4]
     return(1.0 * i * xDist  + ulX, -1.0 * j * xDist + ulY)
-ds8 = gdal.Open(path+'8band/'+'8band_'+fn+'.tif')
-ds3 = gdal.Open(path+'3band/'+'3band_'+fn+'.tif')
+ds8 = gdal.Open(path+'MUL-PanSharpen/'+'MUL-PanSharpen_AOI_5_Khartoum_'+fn+'.tif')
+ds3 = gdal.Open(path+'RGB-PanSharpen/'+'RGB-PanSharpen_AOI_5_Khartoum_'+fn+'.tif')
 geoTrans = ds8.GetGeoTransform()
-with open(path + 'vectorData/geoJson/'+fn+'_Geo.geojson','r') as f:
+with open(path + 'geojson/buildings/'+'buildings_AOI_5_Khartoum_'+fn+'.geojson','r') as f:
     js = json.load(f)
     dist = np.zeros((ds8.RasterXSize, ds8.RasterYSize))
     for i in range(ds8.RasterXSize):
