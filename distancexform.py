@@ -27,9 +27,9 @@ with open(path + 'vectorData/geoJson/'+fn+'_Geo.geojson','r') as f:
             for feature in js['features']:
                 polygon = shape(feature['geometry'])
                 newpd = point.distance(polygon.boundary)
-                 if False == polygon.contains(point):
-                     newpd = -1.0 * newpd
-                 if newpd > pd :
-                     pd = newpd
-             dist[i,j] = pd
+                if False == polygon.contains(point):
+                    newpd = -1.0 * newpd
+                if newpd > pd :
+                    pd = newpd
+            dist[i,j] = pd
 np.save(path+'CosmiQ_distance/'+fn+'.distance',dist)
