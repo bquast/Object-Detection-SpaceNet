@@ -1,5 +1,6 @@
+import tensorflow as tf
 #Generator
-with tf.device(gpu):
+with tf.device('/cpu:0'):
     x8 = tf.placeholder(tf.float32, shape=[None, FLAGS.ws, FLAGS.ws, 8]) # 8-band input
     x3 = tf.placeholder(tf.float32, shape=[None, scale * FLAGS.ws, scale * FLAGS.ws, 3]) # 3-band ipnput
     label_distance = tf.placeholder(tf.float32, shape=[None, FLAGS.ws, FLAGS.ws, 1]) # distance transform as a label
